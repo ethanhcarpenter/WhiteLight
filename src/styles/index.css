@@ -117,6 +117,47 @@ iframe {
     display: block; /* Removes tiny inline bottom gap */
 }
 
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    body {
+        /* Stack the sidebar on top of the content instead of side-by-side */
+        flex-direction: column; 
+    }
 
+    .sidebar {
+        width: 100%;       /* Full width on mobile */
+        height: auto;      /* Shrink to fit content */
+        padding: 10px;
+        flex-direction: row; /* Align logo and links horizontally */
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    /* Hide the divider on mobile to save space */
+    .nav-divider {
+        display: none;
+    }
+
+    .logo-container {
+        padding: 5px;
+        width: 60px; /* Make logo smaller on mobile */
+    }
+
+    .nav-links {
+        flex-direction: row; /* Put links side-by-side */
+        gap: 5px;
+    }
+
+    .nav-links a {
+        padding: 8px 10px;
+        font-size: 12px; /* Smaller text for tight screens */
+    }
+
+    .window-container {
+        /* The remaining height is for the iframe */
+        height: calc(100vh - 80px); 
+    }
+}
 
 
