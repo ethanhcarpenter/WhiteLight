@@ -1,0 +1,122 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw; /* Ensure it stays within viewport width */
+    font-family: sans-serif;
+    background: #1a1a1a;
+    margin: 0;      /* Crucial: removes default browser padding */
+    padding: 0;
+    overflow: hidden; /* This kills the main scrollbar */
+}
+
+.sidebar {
+    width: 250px;
+    background: #070606;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.sidebar a {
+    color: #bbb;
+    text-decoration: none;
+    background: #1a1a1a; /* Darker box for links */
+    padding: 12px 15px;
+    border-radius: 8px; /* Rounded boxes */
+    transition: 0.3s;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    background: #333; /* Highlight shade on hover */
+}
+
+
+/* Logo Container - No visual change on hover */
+.logo-container {
+    background: #1f1f1f; 
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container:hover {
+    /* No visual change on hover */
+    background: #797979; /* Keep the same background */
+}
+
+.logo-container a {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    /* Reset any inherited hover properties */
+    background: none !important; 
+    transition: none;
+}
+
+.logo-container a:hover {
+    /* Ensures the div/container does not react visually */
+    background: transparent !important;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Sidebar Links - These WILL have the hover effect */
+.nav-links a {
+    color: #bbb;
+    text-decoration: none;
+    background: #1a1a1a;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    background: #2fcce0; /* Your specific teal/blue hover color */
+}
+
+.window-container {
+    flex-grow: 1;
+    background: #6d6d6d;
+    height: 100vh;   /* Force it to match the body height */
+    overflow: hidden; /* Prevents the container from scrolling */
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block; /* Removes tiny inline bottom gap */
+}
+
+
+
+

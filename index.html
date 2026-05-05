@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EHC Portfolio</title>
-
+    <title>EHC Portfolio | Viewport</title>
+    <link rel="stylesheet" href="src/styles/index.css">
 </head>
 <body>
-    
+
+    <nav class="sidebar">
+        <!-- Logo in a light rounded container -->
+        <div class="logo-container">
+            <a href="src/pages/home.html" target="content-frame">
+                <img src="assets/img/logo.png" alt="Logo" class="logo">
+            </a>
+        </div>
+
+        <!-- The separator line -->
+        <hr class="nav-divider">
+
+        <!-- Links in their own container for spacing -->
+        <div class="nav-links">
+            <a href="src/pages/jjk.html" target="content-frame">JJK</a>
+            <a href="src/pages/whitelight.html" target="content-frame">White Light</a>
+        </div>
+    </nav>
+
+    <main class="window-container">
+        <iframe 
+            name="content-frame" 
+            src="src/pages/home.html" 
+            frameborder="0">
+        </iframe>
+    </main>
+
 </body>
 </html>
