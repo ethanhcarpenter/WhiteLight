@@ -13,16 +13,27 @@ body {
     overflow: hidden; /* Fixes the scroll issue */
 }
 
-/* SHITTY RETRO ADS */
+/* Add this to your ad containers for that Yahoo vibe */
 .retro-ad {
-    height: 80px;
-    background: #fdfdfd;
-    border: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-    flex-shrink: 0;
+    background: #f9f9f9;
+    border: 2px outset #eee; /* Makes it look like an old-school button */
+}
+
+.ad-title {
+    color: #0000FF; /* Classic Blue Link */
+    text-decoration: underline;
+    font-family: "Times New Roman", serif; /* Extra shitty choice */
+}
+
+.ad-desc {
+    color: #444;
+    font-size: 0.85em;
+}
+
+/* Make the button look like a low-res mobile button */
+.retro-btn {
+    box-shadow: 2px 2px 0px #888;
+    active { transform: translate(1px, 1px); }
 }
 
 .ad-slug { font-size: 10px; color: #0000FF; text-decoration: underline; display: block; }
