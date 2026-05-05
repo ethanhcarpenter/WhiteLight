@@ -1,0 +1,189 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    font-family: "Arial", "Helvetica", sans-serif;
+    overflow: hidden; /* Fixes the scroll issue */
+}
+
+/* SHITTY RETRO ADS */
+.retro-ad {
+    height: 80px;
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    flex-shrink: 0;
+}
+
+.ad-slug { font-size: 10px; color: #0000FF; text-decoration: underline; display: block; }
+.ad-title { font-size: 16px; font-weight: bold; color: #000; margin: 2px 0; }
+.ad-desc { font-size: 12px; color: #444; margin: 0; }
+
+.retro-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.retro-btn.green { background: #00875a; }
+
+/* THE APP SPACE */
+.app-frame {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 20px;
+}
+
+.ruler-section {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ruler-lines {
+    height: 20px;
+    background-image: linear-gradient(to right, #ccc 1px, transparent 1px);
+    background-size: 15px 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.ruler-vals {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-size: 20px;
+    color: #ccc;
+    margin: 10px 0;
+}
+
+.purple-zero, .purple-label {
+    color: #a855f7; /* The specific purple from Screenshot_20260505_025215_WhiteScreen.png */
+    font-weight: bold;
+}
+
+.glow-space {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 70px;
+    letter-spacing: 10px;
+    color: #000;
+    margin: 0;
+}
+
+.power-btn {
+    font-size: 60px;
+    color: #771ed6;
+    margin-top: 40px;
+}
+
+/* MARQUEE LOOK */
+.shitty-ticker {
+    width: 100%;
+    background: #000;
+    color: #00FF00; /* Classic Terminal Green */
+    font-family: monospace;
+    padding: 5px 0;
+}
+
+.slogan {
+    font-size: 3em;
+    color: #000;
+    text-align: center;
+    max-width: 80%;
+    margin: 20px auto 0 auto;
+    
+    /* Apply the shitty glow and expansion */
+    animation: shittyGlow 1.5s infinite ease-in-out;
+    display: block; /* Ensures transform works properly */
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.5));
+}
+
+@keyframes shittyGlow {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 0px rgba(168, 85, 247, 0);
+        opacity: 1;
+    }
+    50% {
+        /* Shittily expand and add a blinding purple/white glow */
+        transform: scale(1.08);
+        text-shadow: 0 0 20px #a855f7, 0 0 30px #fff, 0 0 40px #a855f7;
+        opacity: 0.9; /* Slight flicker effect */
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 0px rgba(168, 85, 247, 0);
+        opacity: 1;
+    }
+}
+
+
+.title {
+    position: relative;
+    font-size: 5rem;
+    font-weight: 900;
+    color: #000;
+    text-align: center;
+    letter-spacing: 10px;
+    margin: 40px 0;
+    z-index: 1;
+}
+
+/* The grainy static overlay */
+.title::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1; /* Subtle enough to look "dirty" but not unreadable */
+    mix-blend-mode: difference; /* This makes the static "react" to the black text */
+    pointer-events: none;
+    z-index: 2;
+    animation: shiftStatic 0.5s steps(2) infinite;
+}
+
+@keyframes shiftStatic {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(2px, 2px); }
+}
+
+/* Add a shitty flicker to the text itself */
+.title {
+    animation: titleFlicker 2s infinite;
+}
+
+@keyframes titleFlicker {
+    0%, 100% { opacity: 1; }
+    95% { opacity: 1; }
+    96% { opacity: 0.7; }
+    97% { opacity: 1; }
+    98% { opacity: 0.8; }
+    99% { opacity: 1; }
+}

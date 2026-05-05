@@ -3,79 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JJK Alternate Ending - Video Player</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: #1a1a1a;
-            color: #eee;
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column; /* Stack header then video */
-            height: 100vh;         /* Locked to screen height */
-            box-sizing: border-box; /* Includes padding in the 100vh calculation */
-            overflow: hidden;      /* Total scroll lockout */
-        }
-
-        /* Header UI */
-        .video-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background: #070606;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .controls-group {
-            display: flex; 
-            gap: 10px;
-        }
-
-        select, .btn-download {
-            background: #1f1f1f;
-            color: white;
-            border: 1px solid #333;
-            padding: 10px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 13px;
-            transition: 0.2s;
-        }
-
-        select:hover, .btn-download:hover {
-            background: #1abcd1;
-            border-color: #1abcd1;
-        }
-
-       .video-viewport {
-            flex-grow: 1;      /* Take all remaining space */
-            min-height: 0;     /* CRITICAL: allows the container to shrink below content size */
-            background: #000;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #333;
-            overflow: hidden;  /* Clip anything that dares to spill out */
-        }
-
-        video {
-            max-width: 100%;
-            max-height: 100%;  /* This keeps the video from pushing the bottom out */
-            width: auto;
-            height: auto;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/jjk.css">
 </head>
 <body>
 
     <div class="video-controls">
-        <h3 id="version-title">JJK Ending: Loading...</h3>
+        <h3 id="version-title">JJK : Loading...</h3>
         
         <div class="controls-group">
             <!-- Dynamically filled by JS -->
@@ -88,52 +21,11 @@
     </div>
 
     <div class="video-viewport">
-        <video id="main-video" controls>
+        <video id="main-video" controls muted>
             Your browser does not support the video tag.
         </video>
     </div>
 
-    <script>
-        // CONFIGURATION
-        const totalVideos = 8; // Number of "try X.mp4" files you have
-        const folderPath = "../../assets/vids/JJK Exports/";
-        
-        const selector = document.getElementById('video-selector');
-        const video = document.getElementById('main-video');
-        const download = document.getElementById('download-link');
-        const title = document.getElementById('version-title');
-
-        function init() {
-            // Generate options from newest (highest) to oldest (lowest)
-            for (let i = totalVideos; i >= 1; i--) {
-                const fileName = `try ${i}.mp4`;
-                const option = document.createElement('option');
-                option.value = folderPath + fileName;
-                option.text = (i === totalVideos) ? `Try ${i} (Latest)` : `Try ${i}`;
-                selector.appendChild(option);
-            }
-
-            // Set the initial state to the latest video
-            updatePlayer(false); 
-        }
-
-        function updatePlayer(shouldPlay = true) {
-            const selectedPath = selector.value;
-            const selectedText = selector.options[selector.selectedIndex].text;
-
-            // Update DOM elements
-            video.src = selectedPath;
-            download.href = selectedPath;
-            title.innerText = "JJK Ending: " + selectedText;
-
-            if (shouldPlay) {
-                video.play();
-            }
-        }
-
-        // Run on load
-        init();
-    </script>
-
+    <script src="../scripts/jjk.js"></script>
 </body>
 </html>
