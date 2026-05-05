@@ -1,0 +1,85 @@
+.mrmen-page {
+    background-color: #fff;
+    margin: 0;
+}
+
+.mrmen-header {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 2px solid #000;
+}
+
+.mrmen-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Grid Layout */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 40px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Book Card following image_2a6c69.png */
+.book-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the image frame in the card */
+    padding: 20px;
+    border: 4px solid #c5c5c5;
+    transition: transform 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Exact dimensions requested: 186 x 246 */
+.image-frame {
+    width: 186px;
+    height: 246px;
+    border: 2px solid #000;
+    box-shadow: 8px 8px 0px #a855f7; /* Goated Purple Shadow */
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.book-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text Details underneath as sketched */
+.book-info {
+    width: 186px; /* Matches image width for alignment */
+    text-align: left;
+    margin-top: 15px;
+}
+
+.mrmen-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.date-read {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.tiktok-link {
+    color: #ff0050; /* TikTok brand color */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.tiktok-link:hover {
+    text-decoration: underline;
+}
