@@ -52,9 +52,9 @@
                 <!-- Messages will be injected here -->
             </div>
 
-            <form id="message-form" onsubmit="handleSend(event)">
-                <input type="text" id="message-input" placeholder="Type a message..." required autocomplete="off">
-                <button type="submit" id="send-btn">Send</button>
+            <form id="message-form">
+                <textarea id="message-input" placeholder="Type a message..." rows="1" autocomplete="off"></textarea>
+                <button type="button" id="send-btn" onclick="handleSend(event)">Send</button>
             </form>
         </div>
     </div>

@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     background: radial-gradient(circle at center, #1e272e, #000000);
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* revert this */
     overflow: hidden;
 }
 
@@ -286,7 +286,14 @@ button:hover {
     word-break: break-word;
     box-sizing: border-box;
 }
-
+.msg-text {
+    font-family: 'Consolas', 'Courier New', monospace;
+    white-space: pre;
+    overflow-x: auto;
+    max-width: 70vw;
+    word-break: normal;
+    overflow-wrap: normal;
+}
 
 
 /* Styling for OTHER user bubbles */
@@ -325,6 +332,7 @@ button:hover {
 }
 
 #message-input {
+    font-family: 'Consolas', 'Courier New', monospace; /* keep textarea as monospace */
     flex: 1;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -333,10 +341,30 @@ button:hover {
     color: white;
     outline: none;
     transition: border 0.3s;
+    font-size: 1rem; /* or whatever size your normal text was */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
 }
+
+
 
 #message-input:focus {
     border-color: #3498db;
+}
+
+
+#message-input::-webkit-scrollbar {
+    width: 4px;
+}
+
+#message-input::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+#message-input::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 #send-btn {

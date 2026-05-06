@@ -21,6 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (wrapper) wrapper.style.display = "none";
         }
     })();
+
+    const input = document.getElementById('message-input');
+
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSend(e);
+        }
+    });
+
+    input.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+    });
 });
 
 /**
@@ -183,7 +197,7 @@ function handleSend(event) {
     const optimisticHtml = `
         <div class="msg-wrapper user-own pending" id="${localId}" data-msg="${msg.replace(/"/g, '&quot;')}">
             <div class="msg-info"><strong>${currentUser}</strong> • ${time} (sending...)</div>
-            <div class="msg-text">${msg}</div>
+            <div class="msg-text">${msg.replace(/\n/g, '<br>')}</div>
         </div>
     `;
     
@@ -193,7 +207,8 @@ function handleSend(event) {
     messageQueue.push({ localId, msg });
     processQueue();
 
-    input.value = ''; 
+    input.value = '';
+    input.style.height = 'auto'; // reset height
 }
 
 async function processQueue() {
@@ -317,7 +332,7 @@ async function loadChats(isLoadMore = false, isPolling = false) {
 function renderMessages(isLoadMore = false, wasAtBottom = false, isPolling = false) {
     const display = document.getElementById('messages');
     const oldHeight = display.scrollHeight;
-    
+
     allMessages.sort((a, b) => new Date(a[2]) - new Date(b[2]));
     // 1. Group the messages for the "single bubble" look
     const grouped = [];
