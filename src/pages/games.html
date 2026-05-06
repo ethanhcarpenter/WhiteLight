@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .game-card {
+            background: #252525;
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: scale(1.03);
+            border-color: #555;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 140px;
+            background: #333;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 12px;
+        }
+
+        .game-title {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Credit Line Styling */
+        .game-credit {
+            margin-top: 5px;
+            font-size: 0.85rem;
+            color: #aaa; /* Lighter grey for credit */
+            font-style: italic;
+        }
+
+        .credit-name {
+            color: #00aaff; /* Subtle color pop for the author */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-grid">
+        
+        <!-- Game 1: External Creator -->
+        <a href="../../games/pacman/index.html" target="content-frame" class="game-card">
+            <img src="../../assets/img/pacman.png" alt="Pacman" class="thumbnail">
+            <div class="game-info">
+                <p class="game-title">Pacman</p>
+                <p class="game-credit">Developed by: <span class="credit-name">Me</span></p>
+            </div>
+        </a>
+
+        <!-- Game 2: Your Original Game -->
+        <a href="../../games/Who Is Pine/game/index.html" target="content-frame" class="game-card">
+            <img src="../../assets/img/pine.png" alt="Who Is Pine?" class="thumbnail">
+            <div class="game-info">
+                <p class="game-title">Who Is Pine?</p>
+                <p class="game-credit">Developed by: <span class="credit-name">Antoni</span></p>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
