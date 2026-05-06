@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhiteLight | Rooms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/chat.css">
+</head>
+<body>
+
+<!-- AUTH (Same as before) -->
+<div id="auth-wrapper">
+  <div id="auth-box">
+    <div class="auth-form" id="login-form">
+      <h2>Welcome Back</h2>
+      <p class="sub">Sign in to join the chat</p>
+      <input type="text" id="login-user" placeholder="Username">
+      <input type="password" id="login-pass" placeholder="Password">
+      <button onclick="handleLogin()">Sign In</button>
+      <p class="toggle-text">New? <span onclick="toggleAuth()">Create account</span></p>
+    </div>
+    <div class="auth-form" id="signup-form" style="display:none">
+      <h2>Join WhiteLight</h2>
+      <input type="text" id="reg-user" placeholder="Username">
+      <input type="password" id="reg-pass" placeholder="Password">
+      <button onclick="handleSignup()">Create Account</button>
+      <p class="toggle-text">Already in? <span onclick="toggleAuth()">Sign in</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CHAT APP -->
+<div id="app">
+  <header id="chat-header">
+    <div class="header-info">
+      <span class="status-dot"></span>
+      <span id="room-name">Global Chat</span>
+    </div>
+    <button onclick="handleLogout()" class="logout-btn">Exit</button>
+  </header>
+
+  <div id="messages"></div>
+
+  <div id="input-area">
+    <div class="input-container">
+      <textarea id="msg-input" placeholder="Type a message..." rows="1"></textarea>
+      <button id="send-btn" onclick="sendMsg()">Send</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="../scripts/chat.js"></script>
+</body>
+</html>

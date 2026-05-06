@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiteLight | Access</title>
+    <link rel="stylesheet" href="../styles/chat.css">
+</head>
+<body>
+
+    <div id="auth-wrapper">
+        <div class="float-layer" id="float-control">
+            <div id="auth-container">
+                <div id="error-box" class="error-box" style="display: none;"></div>
+                <div id="loader-container" class="loader-container" style="display: none;">
+                    <div id="loader-bar" class="loader-bar"></div>
+                </div>
+
+                <!-- Login State -->
+                <!-- Use onsubmit="handleLogin(event)" -->
+                <form class="auth-form" id="login-form" onsubmit="handleLogin(event)">
+                    <h2>Welcome Back</h2>
+                    <input type="text" placeholder="Username" id="login-user" required>
+                    <input type="password" placeholder="Password" id="login-pass" required>
+                    <button type="submit">Login</button>
+                    <p class="toggle-text">New here? <span onclick="toggleAuth()">Sign Up</span></p>
+                    <p class="funny-warning">P.S. I can see your passwords, so don't use your bank one.</p>
+                </form>
+
+                <!-- Sign Up State -->
+                <!-- Use onsubmit="handleSignup(event)" -->
+                <form class="auth-form" id="signup-form" style="display: none;" onsubmit="handleSignup(event)">
+                    <h2>Create Account</h2>
+                    <input type="text" placeholder="Choose Username" id="signup-user" required>
+                    <input type="password" placeholder="Choose Password" id="signup-pass" required>
+                    <button type="submit">Sign Up</button>
+                    <p class="toggle-text">Already a user? <span onclick="toggleAuth()">Login</span></p>
+                    <p class="funny-warning">Seriously, I'm storing these in a text file. Be smart.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="chat-wrapper" style="display: none;">
+        <div id="chat-container">
+            <div id="chat-header">
+                <button id="load-more-btn" onclick="loadChats(true)">Load Previous</button>
+            </div>
+            
+            <div id="messages">
+                <!-- Messages will be injected here -->
+            </div>
+
+            <form id="message-form" onsubmit="handleSend(event)">
+                <input type="text" id="message-input" placeholder="Type a message..." required autocomplete="off">
+                <button type="submit" id="send-btn">Send</button>
+            </form>
+        </div>
+    </div>
+    
+
+
+
+
+
+    <script src="../scripts/chat.js"></script>
+</body>
+</html>

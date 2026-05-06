@@ -103,6 +103,18 @@ body {
     background: #2fcce0; /* Your specific teal/blue hover color */
 }
 
+.chat-link {
+    margin-top: auto; /* Pushes the chat link to the bottom */
+    background: #1a1a1a;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
 .window-container {
     flex-grow: 1;
     background: #6d6d6d;
