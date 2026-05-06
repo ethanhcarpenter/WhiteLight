@@ -1,4 +1,4 @@
-const G_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzAOR053e53jQ_jsf3qBpjHKDZ-oP18ht4GI63nU4NzewGHJF0htzHGzlkwYDTP4TgbTg/exec";
+const G_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzMQKD6_vklJW73rWZ_VaWqfEoV4sv0Hfm3owpMYMW5M4y66fDHRYDCFhPtsrSXNh4peA/exec";
 const ADMIN_USERNAME = "Ethan Henry Carpenter"; 
 
 // Global State
