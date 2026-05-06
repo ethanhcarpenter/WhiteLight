@@ -317,7 +317,8 @@ async function loadChats(isLoadMore = false, isPolling = false) {
 function renderMessages(isLoadMore = false, wasAtBottom = false, isPolling = false) {
     const display = document.getElementById('messages');
     const oldHeight = display.scrollHeight;
-
+    
+    allMessages.sort((a, b) => new Date(a[2]) - new Date(b[2]));
     // 1. Group the messages for the "single bubble" look
     const grouped = [];
     allMessages.forEach((msg) => {
@@ -335,7 +336,9 @@ function renderMessages(isLoadMore = false, wasAtBottom = false, isPolling = fal
         const isOwn = (group.user === currentUser) ? 'user-own' : '';
         const isAdmin = (group.user === ADMIN_USERNAME) ? 'admin-msg' : '';
         const time = new Date(group.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const joinedText = group.texts.join('<br>');
+        const joinedText = group.texts.map(t => 
+            `<span style="display:block">${String(t).replace(/\n/g, '<br>')}</span>`
+        ).join('');
         console.log("Rendering message for user:", group.user, "with texts:", group.texts);
         return `
             <div class="msg-wrapper ${isOwn} ${isAdmin}">
@@ -366,7 +369,7 @@ function renderMessages(isLoadMore = false, wasAtBottom = false, isPolling = fal
         if (isLoadMore) {
             // Keep the user looking at the same messages after loading history
             display.scrollTop = display.scrollHeight - oldHeight;
-        } else if (wasAtBottom || !isPolling) {
+        } else if (!isPolling) {
             // Snap to bottom if they were already at the bottom OR if it's the first load
             scrollToBottom();
         }

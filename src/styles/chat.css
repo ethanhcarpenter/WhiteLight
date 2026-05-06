@@ -234,23 +234,27 @@ button:hover {
 
 /* --- Messages Area --- */
 #messages {
-    
     display: flex;
     flex-direction: column; 
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal overflow */
     padding: 20px;
-    gap: 8px; /* Reduced gap for a tighter, cleaner look */
+    gap: 8px;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    box-sizing: border-box; /* Include padding in width calc */
 }
+
 
 /* Base wrapper for every message */
 .msg-wrapper {
     display: flex;
     flex-direction: column;
-    max-width: 80%; /* Allow bubbles to be wider if needed */
-    width: fit-content; /* THIS makes the bubble shrink to text size */
+    max-width: 80%;
+    width: fit-content;
+    min-width: 0; /* Allows flex children to shrink below content size */
+    box-sizing: border-box;
 }
 
 /* Align OTHER users to the left */
@@ -259,11 +263,6 @@ button:hover {
     align-items: flex-start;
 }
 
-/* Align YOUR messages to the right */
-.msg-wrapper.user-own {
-    align-self: flex-end;
-    align-items: flex-end;
-}
 
 /* Metadata (Username • Time) */
 .msg-info {
@@ -279,26 +278,39 @@ button:hover {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 18px;
-    color: #eee;
+    color: #ffffff;
     line-height: 1.4;
-    word-wrap: break-word;
-    /* Remove fixed width or 100% width if inherited */
+    
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
 }
+
+
 
 /* Styling for OTHER user bubbles */
 .msg-wrapper:not(.user-own) .msg-text {
     border-bottom-left-radius: 4px; /* Distinct corner for others */
 }
 
-/* Styling for YOUR bubbles */
+/* REMOVE both existing .msg-wrapper.user-own blocks and replace with this ONE: */
+.msg-wrapper.user-own {
+    align-self: flex-end;
+    align-items: flex-end;
+    margin-left: auto;
+    max-width: 80%;
+}
+
 .msg-wrapper.user-own .msg-text {
     background: linear-gradient(135deg, #3498db, #2980b9);
     border: none;
-    border-bottom-right-radius: 4px; /* Distinct corner for you */
+    border-bottom-right-radius: 4px;
     color: white;
     box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+    word-break: break-word;
+    text-align: left;
 }
-
 /* Pending/Sending state */
 .msg-wrapper.pending {
     opacity: 0.7;
