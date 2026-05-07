@@ -67,3 +67,21 @@ body {
 .game-title { margin: 0; font-size: 1rem; font-weight: bold; }
 .game-credit { margin-top: 4px; font-size: 0.8rem; color: #888; font-style: italic; }
 .game-credit span { color: #00aaff; }
+
+
+::-webkit-scrollbar {
+    width: 10px; /* Slightly thinner for a cleaner look */
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0); /* Makes the track invisible */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff; /* Subtle dark grey thumb */
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #757575; /* The teal pop you have in your sidebar */
+}

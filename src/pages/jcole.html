@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J. Cole Discography | Interactive Shelf</title>
+    
+    <link rel="stylesheet" href="../../src/styles/jcole.css">
+</head>
+<body>
+
+    <main class="jc-root" id="root">
+        
+        <header class="crate-label">
+            J. Cole — Discography
+        </header>
+
+        <section class="shelf-row" id="shelf">
+            <div class="shelf-line"></div>
+        </section>
+
+        <p class="hint-text" id="hint">pull a record from the shelf</p>
+
+        <section class="player-section" id="playerSection">
+            <div class="turntable-wrap">
+                <button class="close-btn" id="closeBtn" aria-label="Close Player">✕</button>
+                <div class="platter-outer" id="platterOuter">
+                    <div class="platter-label" id="platterLabel">
+                        <div class="platter-center"></div>
+                    </div>
+                </div>
+                <div class="turntable-controls">
+                    <button class="ctrl-btn" id="prevBtn" aria-label="Previous album">&#8592;</button>
+                    <button class="ctrl-btn" id="playBtn" aria-label="Play album">&#9208;</button>
+                    <button class="ctrl-btn" id="nextBtn" aria-label="Next album">&#8594;</button>
+                </div>
+            </div>
+            </div>
+
+            <article class="tracklist">
+                <h1 class="album-name" id="albumName">—</h1>
+                <p class="year-tag" id="albumYear"></p>
+                <div id="trackList"></div>
+            </article>
+        </section>
+
+        <div class="picked-overlay" id="overlay"></div>
+
+    </main>
+
+    <script src="../../src/scripts/jcole.js"></script>
+</body>
+</html>

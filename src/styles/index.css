@@ -13,7 +13,7 @@ body {
     background: #1a1a1a;
     margin: 0;      /* Crucial: removes default browser padding */
     padding: 0;
-    overflow: hidden; /* This kills the main scrollbar */
+    
 }
 
 .sidebar {
@@ -173,3 +173,26 @@ iframe {
 }
 
 
+::-webkit-scrollbar {
+    width: 10px;              /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #a02525;      /* Color of the tracking area (matches your background) */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333;   /* Color of the draggable bar */
+    border-radius: 10px;       /* Roundness of the bar */
+    border: 2px solid #1a1a1a; /* Creates padding around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2fcce0; /* Matches your teal/blue hover color */
+}
+
+/* 2. For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #1a1a1a; /* thumb color | track color */
+}
