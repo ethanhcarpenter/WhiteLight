@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Game Player</title>
+    <style>
+        /* This centers everything in the body */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Horizontal center */
+            align-items: center;     /* Vertical center */
+            height: 100vh;           /* Take up full viewport height */
+            background-color: #333;  /* Optional: darker background for better contrast */
+            overflow: hidden;
+        }
+
+        /* Styling for the Ruffle player */
+        ruffle-player {
+            /* You can use percentages or 'vw/vh' for responsiveness */
+            width: 90vw;  /* 90% of the screen width */
+            height: 90vh; /* 90% of the screen height */
+            
+            /* Max limits so it doesn't get ridiculously huge on ultra-wide monitors */
+            max-width: 1000px; 
+            max-height: 750px;
+            
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Optional: adds a nice shadow */
+        }
+    </style>
 </head>
 <body>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
@@ -15,9 +41,10 @@
 
             const ruffle = window.RufflePlayer.newest();
             const player = ruffle.createPlayer();
-            player.style.width  = "620px";
-            player.style.height = "480px";
+            
+            // We removed the fixed pixel sizes here so the CSS above can take over
             document.body.appendChild(player);
+            
             player.load({ url: gameToLoad, volume: 0 });
             player.addEventListener("loadeddata", () => player.focus());
         });
