@@ -354,7 +354,6 @@ function renderMessages(isLoadMore = false, wasAtBottom = false, isPolling = fal
         const joinedText = group.texts.map(t => 
             `<span style="display:block">${String(t).replace(/\n/g, '<br>')}</span>`
         ).join('');
-        console.log("Rendering message for user:", group.user, "with texts:", group.texts);
         return `
             <div class="msg-wrapper ${isOwn} ${isAdmin}">
                 <div class="msg-info"><strong>${group.user}</strong> • ${time}</div>
