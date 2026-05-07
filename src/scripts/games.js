@@ -35,6 +35,13 @@ const GAMES = [
         thumb:  "../../assets/img/games/evil.png",
         emoji:  "😈",
     },
+    {
+        title:  "CyberQuest City",
+        credit: "Luke",
+        href:   "../../games/city/index.html",
+        thumb:  "../../assets/img/games/city.png",
+        emoji:  "🏙️",
+    },
 
     // ── Riddle School ─────────────────────────────────────────
     {
