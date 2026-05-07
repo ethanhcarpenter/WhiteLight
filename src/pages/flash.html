@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script>
+        window.addEventListener("load", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const gameToLoad = urlParams.get('game');
+            if (!gameToLoad) return;
+
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            player.style.width  = "620px";
+            player.style.height = "480px";
+            document.body.appendChild(player);
+            player.load({ url: gameToLoad, volume: 0 });
+            player.addEventListener("loadeddata", () => player.focus());
+        });
+    </script>
+</body>
+</html>
