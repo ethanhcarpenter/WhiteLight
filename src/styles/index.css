@@ -173,6 +173,178 @@ iframe {
 }
 
 
+
+
+
+.sidebar .turntable-wrap {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.sidebar .platter-outer {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: #111;
+    border: 4px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.sidebar .platter-label {
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+    background: #222; /* Fallback */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    animation: spin 8s linear infinite;
+    animation-play-state: paused;
+}
+
+.sidebar .platter-label.spinning {
+    animation-play-state: running;
+}
+
+/* Vinyl Grooves Effect */
+.sidebar .platter-label::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, 
+        transparent 30%, 
+        rgba(0, 0, 0, 0.3) 31%, 
+        transparent 32%, 
+        rgba(0, 0, 0, 0.3) 50%, 
+        transparent 51%, 
+        rgba(0, 0, 0, 0.2) 70%, 
+        transparent 71%);
+    pointer-events: none;
+}
+
+.sidebar .platter-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #0a0a0a;
+    border: 1px solid #444;
+    z-index: 5;
+}
+
+.sidebar .turntable-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.sidebar .ctrl-btn {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #bbb;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.sidebar .ctrl-btn:hover {
+    background: #2fcce0; /* Matching your sidebar hover color */
+    color: white;
+    border-color: #2fcce0;
+}
+
+.sidebar .volume-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 80%;
+}
+
+.sidebar #volumeSlider {
+    flex-grow: 1;
+    accent-color: #2fcce0;
+    cursor: pointer;
+}
+
+/* Hide close button in sidebar context if not needed */
+.sidebar .close-btn {
+    display: none; 
+}
+
+.track-display {
+    margin-top: 12px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.now-playing-label {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 2px;
+}
+
+#trackName {
+    font-family: 'DM Mono', monospace;
+    color: #da690d;
+    font-weight: bold;
+    font-size: 11px;
+    
+    text-align: center;
+    display: block;
+    width: 100%;           /* Use 100% of the sidebar width */
+    margin: 10px 0;
+    
+    /* THE FIXES */
+    white-space: nowrap;   /* Prevents the "New Line" behavior */
+    overflow: hidden;      /* Hides any text that is too long to fit */
+    text-overflow: ellipsis; /* Optional: adds "..." if the name is too long */
+    
+    text-transform: uppercase;
+}
+
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ::-webkit-scrollbar {
     width: 10px;              /* Width of the entire scrollbar */
 }

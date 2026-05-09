@@ -26,8 +26,33 @@
             <a href="src/pages/mrmen.html" target="content-frame">Mr Men</a>
             <a href="src/pages/games.html" target="content-frame">Games</a>
             <a href="src/pages/jcole.html" target="content-frame">Jermaine Lamarr Cole</a>
-            <a href="src/pages/games.html" target="content-frame">undone</a>
+            <a href="src/pages/home.html" target="content-frame">to be decided</a>
+            <a href="src/pages/home.html" target="content-frame">to be decided</a>
         </div>
+        
+
+        <div class="turntable-wrap">
+            <div class="track-name-container">
+                <div id="trackName" class="track-name-scroll">Select a Track</div>
+            </div>
+                <button class="close-btn" id="closeBtn" aria-label="Close Player">✕</button>
+                <div class="platter-outer" id="platterOuter">
+                    <div class="platter-label" id="platterLabel">
+                        <div class="platter-center"></div>
+                    </div>
+                </div>
+                <div class="turntable-controls">
+                    <button class="ctrl-btn" id="prevBtn" aria-label="Previous album">&#8592;</button>
+                    <button class="ctrl-btn" id="playBtn" aria-label="Play album">&#9208;</button>
+                    <button class="ctrl-btn" id="nextBtn" aria-label="Next album">&#8594;</button>
+                </div>
+
+                <div class="volume-container">
+                    <span class="vol-icon">&#128266;</span>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="30">
+                </div>
+            </div>
+
         <a href="src/pages/chat.html" target="content-frame" class="chat-link">Chat</a>
     </nav>
 
@@ -39,5 +64,6 @@
         </iframe>
     </main>
 
+    <script src="src/scripts/index.js"></script>
 </body>
 </html>
