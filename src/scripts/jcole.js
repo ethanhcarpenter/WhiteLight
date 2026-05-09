@@ -113,7 +113,7 @@ function showPlayer(album) {
         div.className = 'track-item';
         div.onclick = () => {
             const path = `../../assets/music/Cole/${album.title}/J. Cole - ${t}.mp3`;
-            currentlyPlayingTrack(album, t);
+            window.parent.currentlyPlayingTrack(album, t);
             window.parent.loadTrack(path);
         };
         div.innerHTML = `<span class="track-num">${String(i+1).padStart(2,'0')}</span><span>${t}</span>`;
