@@ -262,9 +262,9 @@ const GAMES = [
     
     // ── Mario ─────────────────────────────────────────────────
     {
-        title:   "Super Mario Flash",
+        title:   "Super Mario 63",
         section: "Mario",
-        href:    "../../src/pages/flash.html?game=../../../../games/flash/mario/super-mario.swf",
+        href:    "../../src/pages/flash.html?game=../../../../games/flash/mario/63.swf",
         emoji:   "🍄",
     },
 
@@ -300,6 +300,12 @@ const GAMES = [
         section: "Misc",
         href:    "../../src/pages/flash.html?game=../../../../games/flash/meatboy.swf",
         emoji:   "🩸",
+    },
+    {
+        title:   "Friday Night Funkin",
+        section: "Misc",
+        href:    "../../src/pages/flash.html?game=../../../../games/flash/friday.swf",
+        emoji:   "🎤",
     },
 
  
