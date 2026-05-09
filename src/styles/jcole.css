@@ -393,12 +393,33 @@
     flex-shrink: 0;
 }
 
+/* Your existing styles */
 .turntable-controls {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
     margin-top: 12px;
+}
+
+/* New volume styles */
+.volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px; /* Space between buttons and slider */
+}
+
+#volumeSlider {
+    cursor: pointer;
+    width: 120px; /* Adjust width to match your button row width */
+    accent-color: #333; /* Colors the slider handle; change to match your theme */
+}
+
+.vol-icon {
+    font-size: 14px;
+    opacity: 0.7;
 }
 
 .ctrl-btn {

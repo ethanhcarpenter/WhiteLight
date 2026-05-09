@@ -303,6 +303,8 @@ const albums = [
 
 ];
 
+
+
 const CARD_W = 160; 
 const CASSETTE_W = 60;
 
@@ -312,8 +314,19 @@ let selectedKey = null;
 let slotData = [];
 
 const audio = new Audio();
+audio.volume = 0.3; 
 let isPlaying = false;
 let currentlyPlaying="";
+
+
+const volumeSlider = document.getElementById('volumeSlider');
+
+volumeSlider.addEventListener('input', (e) => {
+    const value = e.target.value;
+    // Volume takes a decimal between 0 and 1
+    audio.volume = value / 100;
+});
+
 
 
 function currentlyPlayingTrack(album, track) {
