@@ -369,6 +369,17 @@
     page-break-inside: avoid;
 }
 
+.track-item.playing {
+    color: #da690d;
+    font-weight: bold;
+}
+
+.track-item:hover {
+    color: #e8d5a0;
+}
+
+
+
 @keyframes fadeIn {
     to {
         opacity: 1

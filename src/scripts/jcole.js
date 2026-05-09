@@ -211,7 +211,7 @@ const albums = [
             'Once An Addict (Interlude)',
             'FRIENDS',
             'Window Pain (Outro)',
-            '1985 (Intro To "The Fall Off")'
+            '1985 (Intro To The Fall Off)'
         ]
     },
 
@@ -284,10 +284,10 @@ const albums = [
             'WHO TF IZ U',
             'Drum n Bass',
             'The Let Out',
-            'Bombs in the Ville / Hit the Floor',
+            'Bombs in the Ville  Hit the Gas',
             'Lonely at the Top',
             '39 Intro',
-            'The Fall-Off Is Inevitable',
+            'The Fall Off Is Inevitable',
             'The Villest',
             'Old Dog',
             'Life Sentence',
@@ -315,6 +315,19 @@ const audio = new Audio();
 let isPlaying = false;
 let currentlyPlaying="";
 
+
+function currentlyPlayingTrack(album, track) {
+  const items = document.querySelectorAll('.track-item');
+  items.forEach(item => {
+    if (item.textContent.includes(track)) {
+      item.classList.add('playing');
+    }
+    else {
+      item.classList.remove('playing');
+    }
+  });
+}
+
 function togglePlay() {
   if (audio.src === "" || audio.src.includes('null')) return; // Don't play if no track is loaded
   if (isPlaying) {
@@ -333,13 +346,13 @@ function togglePlay() {
 }
 
 function loadTrack(mp3Url) {
+
     audio.src = mp3Url;
     audio.load();
     document.getElementById('platterLabel').style.animationPlayState = 'running';
     document.getElementById('playBtn').innerHTML = "⏸";
     isPlaying = true;
     audio.play().then(() => {
-        console.log("Playing...");
     }).catch(error => {
         console.error("Browser blocked playback. User needs to click first.", error);
     });
@@ -356,6 +369,7 @@ function moveTrack(amount) {
   if (nextIndex < 0) nextIndex += album.tracks.length; // Handle negative wrap-around
   const nextTrackName = album.tracks[nextIndex];
   const path = `../../assets/music/Cole/${album.title}/J. Cole - ${nextTrackName}.mp3`;
+  currentlyPlayingTrack(album, nextTrackName);
   loadTrack(path);
   console.log(`Moving from track ${currentTrack} to ${nextTrackName}`);
 }
@@ -498,6 +512,7 @@ function pickAlbum(key, slot, cover, img) {
       document.getElementById('platterLabel').classList.add('spinning');
     }, 300);
     const path = `../../assets/music/Cole/${album.title}/J. Cole - ${album.tracks[0]}.mp3`.replace('%20', ' ');
+    currentlyPlayingTrack(album, album.tracks[0]);
     loadTrack(path);
   });
 }
@@ -517,6 +532,8 @@ function setPlatter(cover, img) {
   }
 }
 
+
+
 function showPlayer(album) {
   document.getElementById('albumName').textContent = album.title;
   document.getElementById('albumYear').textContent = album.year;
@@ -525,6 +542,11 @@ function showPlayer(album) {
   album.tracks.forEach((t, i) => {
     const div = document.createElement('div');
     div.className = 'track-item';
+    div.onclick = () => {
+      const path = `../../assets/music/Cole/${album.title}/J. Cole - ${t}.mp3`.replace('%20', ' ');
+      currentlyPlayingTrack(album, t);
+      loadTrack(path);
+    };
     div.style.animationDelay = `${i * 0.06}s`;
     div.innerHTML = `<span class="track-num">${String(i+1).padStart(2,'0')}</span><span>${t}</span>`;
     list.appendChild(div);
