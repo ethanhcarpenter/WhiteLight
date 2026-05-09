@@ -23,7 +23,8 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    height: 100vh; /* Lock sidebar to screen height */
+    overflow: hidden; /* Prevent the sidebar itself from scrolling */
 }
 
 
@@ -48,6 +49,7 @@ body {
 .logo-container {
     background: #1f1f1f; 
     padding: 15px;
+    margin-bottom: 20px;
     border-radius: 12px;
     display: flex;
     justify-content: center;
@@ -79,10 +81,20 @@ body {
     display: block;
 }
 
+
 .nav-links {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
+    /* SCROLL LOGIC */
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    /* THE GAP FIXES */
+    padding-bottom: 30px;  /* Adds space inside the scroll area so the last link isn't cramped */
+    margin-bottom: 20px;   /* Adds a physical gap between the scroll list and the turntable name */
 }
 
 /* Sidebar Links - These WILL have the hover effect */
@@ -177,7 +189,9 @@ iframe {
 
 
 .sidebar .turntable-wrap {
-    margin: auto;
+
+    margin-bottom: 10px;      /* Extra push from the top */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Optional: subtle line to define the player area */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -344,7 +358,6 @@ iframe {
 
 
 
-
 ::-webkit-scrollbar {
     width: 10px;              /* Width of the entire scrollbar */
 }
@@ -367,4 +380,17 @@ iframe {
 * {
     scrollbar-width: thin;
     scrollbar-color: #333 #1a1a1a; /* thumb color | track color */
+}
+
+.nav-links::-webkit-scrollbar {
+    width: 4px;
+}
+
+.nav-links::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+.nav-links::-webkit-scrollbar-thumb:hover {
+    background: #2fcce0;
 }
