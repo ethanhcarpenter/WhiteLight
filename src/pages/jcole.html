@@ -36,5 +36,23 @@
     </main>
 
     <script src="../../src/scripts/jcole.js"></script>
+    <script>
+        let wakeLock = null;
+        async function activateWakeLock() {
+            try {
+                wakeLock = await navigator.wakeLock.request('screen');
+                console.log('PC will stay awake!');
+            } catch (err) {
+                console.log('Wake Lock failed. Is the tab active?');
+            }
+        }
+
+        // Re-activate if user switches back to the tab
+        document.addEventListener('visibilitychange', () => {
+            if (wakeLock !== null && document.visibilityState === 'visible') {
+                activateWakeLock();
+            }
+        });
+    </script>
 </body>
 </html>

@@ -18,7 +18,21 @@
         <button class="retro-btn">OPEN ></button>
     </div>
 
-    <!-- MAIN INTERFACE (Locked) -->
+    <div id="fake-cursor" style="
+        position: fixed;
+        width: 64px;  /* Adjust based on your image size */
+        height: 64px; /* Adjust based on your image size */
+        background-image: url('../../assets/img/cursor.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.1s ease-in-out;
+        /* Ensure the 'hotspot' is the center of the image */
+        margin-left: -16px; 
+        margin-top: -16px;
+    "></div>
+
     <main class="app-frame">
         <div class="ruler-section">
             <div class="ruler-lines"></div>
@@ -58,6 +72,49 @@
         </div>
         <button class="retro-btn green">OPEN ></button>
     </div>
+    <script>
+    // 1. THE ACTUAL WAKE LOCK (Prevents Sleep)
+    let wakeLock = null;
 
+    async function activateWakeLock() {
+        try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            console.log('PC will stay awake!');
+        } catch (err) {
+            console.log('Wake Lock failed. Is the tab active?');
+        }
+    }
+
+    // Re-activate if user switches back to the tab
+    document.addEventListener('visibilitychange', () => {
+        if (wakeLock !== null && document.visibilityState === 'visible') {
+            activateWakeLock();
+        }
+    });
+
+    // 2. THE VISUAL SHAKE (For the "Effect")
+    const cursor = document.getElementById('fake-cursor');
+
+    // Move the fake cursor with the real mouse
+    window.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+   
+    setInterval(() => {
+        const jitterX = (Math.random() - 0.5) * 200; 
+        const jitterY = (Math.random() - 0.5) * 200; 
+        
+        cursor.style.transform = `translate(${jitterX}px, ${jitterY}px)`;
+        
+        setTimeout(() => {
+            cursor.style.transform = 'translate(0, 0)';
+        }, 150);
+    }, 3000);
+
+    // Initialize
+    activateWakeLock();
+    </script>
 </body>
 </html>

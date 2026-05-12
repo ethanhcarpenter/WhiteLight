@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    
 }
 
 body {
@@ -196,4 +197,8 @@ h1 {
     97% { opacity: 1; }
     98% { opacity: 0.8; }
     99% { opacity: 1; }
+}
+
+body,html{
+    cursor: none;
 }
