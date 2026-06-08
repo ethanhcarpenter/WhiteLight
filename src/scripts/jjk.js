@@ -1,4 +1,4 @@
-const totalVideos = 8; 
+const totalVideos = 10; 
 const folderPath = "../../assets/vids/JJK Exports/";
 
 const selector = document.getElementById('video-selector');
