@@ -1,5 +1,4 @@
 const totalVideos = 10; 
-//this change should be seeable 
 const folderPath = "../../assets/vids/JJK Exports/";
 
 const selector = document.getElementById('video-selector');
